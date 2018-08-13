@@ -1,7 +1,7 @@
 # npm
 node_modules/
 npm-debug.log
-
+public/dist
 # deployd
 .dpd/
 data/
