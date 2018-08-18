@@ -1,12 +1,8 @@
-import React, { Component } from "react";
-import Login from "./containers/Login";
+import React from "react";
 
-class App extends Component {
+class App extends React.Component {
   render() {
-    return (
-      <Login />
-    );
+    return this.props.children;
   }
 }
-
 export default App;

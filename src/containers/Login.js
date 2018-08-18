@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import _ from "lodash";
 import { login, signup } from "../actions/deploydActions";
@@ -8,18 +7,11 @@ const initialState = {
   username: "",
   password: "",
   signup: true,
-  login: false,
+  login: false
 };
 
-export class Login extends Component {
+class Login extends Component {
   state = _.clone(initialState);
-
-  static get propTypes() {
-    return {
-      login: PropTypes.any,
-      signup: PropTypes.any
-    };
-  }
 
   handleChange = e => {
     let state = _.clone(this.state);
@@ -35,19 +27,17 @@ export class Login extends Component {
   };
 
   loginUser = () => {
-    let user = {username: this.state.username};
-    if(this.state.login) {
+    let user = { username: this.state.username };
+    if (this.state.login) {
       user.password = this.state.password;
       this.props.login(user);
     }
     user.password = false;
     this.props.signup(user);
     this.setState(initialState);
-  }
+  };
 
   render() {
-    const { login } = this.props;
-
     return (
       <div>
         <input
@@ -62,24 +52,20 @@ export class Login extends Component {
           onChange={e => this.handleChange(e)}
         />
         <button onClick={() => this.loginUser()}>
-          {this.state.login ? "Login": "Sign Up"}
+          {this.state.login ? "Login" : "Sign Up"}
         </button>
         <button onClick={() => this.setMode()}>
-          Click to {this.state.login ? "Sign Up": "Login"}
+          Click to {this.state.login ? "Sign Up" : "Login"}
         </button>
       </div>
     );
   }
 }
 
-export const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = dispatch => {
   return {
-    login: (user) => {
-      dispatch(login(user));
-    },
-    signup: (user) => {
-      dispatch(signup(user));
-    }
+    login: user => { dispatch(login(user));},
+    signup: user => { dispatch(signup(user));}
   };
 };
 

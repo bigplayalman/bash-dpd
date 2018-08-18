@@ -6,16 +6,18 @@ export function login(user) {
 
 export function signup(user) {
 
-  return async dispatch => {
-    return dpd.signups.post(user).then((response) => {
-      console.log(response);
-    });
+  return (dispatch) => {
+    // return dpd.signups.post(user).then((response) => {
+	  // window.localStorage.setItem("bash-id", response.id);
+	  // window.localStorage.setItem("username", response.username);
+	  // dispatch(userInfo(user));
+    // });
   };
 }
 
-export function userInfo(userid) {
+export function userInfo(user) {
   return {
     type: USERINFO,
-    payload: userid
+    payload: user
   };
 }

@@ -35,7 +35,7 @@ module.exports = {
     ]
   },
   devServer: {
-    contentBase: "./public/",
+    contentBase: path.resolve(__dirname, "./public"),
     watchContentBase: true
   },
   plugins: [
