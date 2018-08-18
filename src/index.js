@@ -11,6 +11,7 @@ import Login from "./containers/Login";
 import { PrivateRoute } from "./components/auth/privateRoute";
 import welcome from "./components/welcome";
 import Header from "./components/header";
+import {AUTH_USER} from "./constants/ActionTypes";
 
 // By using <Provider />, the store will be made available for all the components in your application.
 

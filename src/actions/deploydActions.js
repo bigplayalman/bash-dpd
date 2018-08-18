@@ -6,7 +6,7 @@ export function login(user) {
 }
 
 export function isLoggedin() {
-  axios.get("users/me").then(response => {
+  axios.get("http://localhost:2403/users/me").then(response => {
     console.log(response);
   });
 }
