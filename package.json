@@ -6,9 +6,7 @@
     "node": ">= 4.0"
   },
   "dependencies": {
-    "deployd": "^1.0.0",
-    "dpd-clientlib": "^0.0.1",
-    "dpd-dashboard": "^0.0.1",
+    "axios": "^0.18.0",
     "history": "^4.7.2",
     "lodash": "^4.17.10",
     "prop-types": "^15.6.2",

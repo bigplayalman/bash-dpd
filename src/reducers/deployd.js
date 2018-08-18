@@ -1,4 +1,4 @@
-import { USERINFO } from "../constants/ActionTypes";
+import { USERINFO, AUTH_USER } from "../constants/ActionTypes";
 
 export default function reducer(state = {}, action) {
   switch (action.type) {
@@ -6,6 +6,8 @@ export default function reducer(state = {}, action) {
       return Object.assign({}, state, {
         userid: action.payload
       });
+      case AUTH_USER:
+      return {...state, error: "", authenticated: true};
   }
 
   return state;

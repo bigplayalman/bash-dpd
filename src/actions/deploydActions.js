@@ -1,17 +1,23 @@
 import { USERINFO } from "../constants/ActionTypes";
+import axios from "axios";
 
 export function login(user) {
   return async dispatch => {};
 }
 
-export function signup(user) {
+export function isLoggedin() {
+  axios.get("users/me").then(response => {
+    console.log(response);
+  });
+}
 
-  return (dispatch) => {
-    // return dpd.signups.post(user).then((response) => {
-	  // window.localStorage.setItem("bash-id", response.id);
-	  // window.localStorage.setItem("username", response.username);
-	  // dispatch(userInfo(user));
-    // });
+export function signup(user) {
+  return dispatch => {
+    return dpd.signups.post(user).then(response => {
+      window.localStorage.setItem("bash-id", response.id);
+      window.localStorage.setItem("username", response.username);
+      dispatch(userInfo(user));
+    });
   };
 }
 

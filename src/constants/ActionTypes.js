@@ -6,5 +6,6 @@
 /* eslint-disable */
 
 export const USERINFO = "USERINFO";
+export const AUTH_USER = "AUTH_USER";
 
 /* eslint-enable */

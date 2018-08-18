@@ -14,6 +14,11 @@ import Header from "./components/header";
 
 // By using <Provider />, the store will be made available for all the components in your application.
 
+const token = localStorage.getItem("token");
+
+if (token) {
+  store.dispatch({ type: AUTH_USER });
+}
 render(
   <Provider store={store}>
     <Router>

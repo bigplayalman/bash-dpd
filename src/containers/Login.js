@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
-import { login, signup } from "../actions/deploydActions";
+import { login, signup, isLoggedin } from "../actions/deploydActions";
+import { SSL_OP_NO_QUERY_MTU } from "constants";
 
 const initialState = {
   username: "",
@@ -11,7 +12,12 @@ const initialState = {
 };
 
 class Login extends Component {
-  state = _.clone(initialState);
+
+  constructor(props) {
+    super(props);
+    this.state = _.clone(initialState);
+    props.isLoggedin();
+  }
 
   handleChange = e => {
     let state = _.clone(this.state);
@@ -65,7 +71,8 @@ class Login extends Component {
 const mapDispatchToProps = dispatch => {
   return {
     login: user => { dispatch(login(user));},
-    signup: user => { dispatch(signup(user));}
+    signup: user => { dispatch(signup(user));},
+    isLoggedin
   };
 };
 
